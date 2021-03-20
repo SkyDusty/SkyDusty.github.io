@@ -21,28 +21,32 @@
     var CONFIG = {"hostname":"skydusty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="King">
-<meta property="og:url" content="https://skydusty.github.io/index.html">
+  <meta name="description" content="洛谷又刷到了一道石头剪子布的题，上一次写这种类型还是在pta上，这种题不难，但有点费时感觉模拟题都挺要时间的 规则     结果 石 剪 布 蜥 斯    石 平 赢 输 赢 输   剪 输 平 赢 赢 输   布 赢 输 平 输 赢   蜥 输 输 赢 平 赢   斯 赢 赢 输 输 平     用Markdown敲表格是真的累，你们可以自己去敲一敲(QAQ) 这题感觉还没在pta上做的难，感觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="石头剪子布">
+<meta property="og:url" content="https://skydusty.github.io/2021/03/20/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%AD%90%E5%B8%83/index.html">
 <meta property="og:site_name" content="King">
+<meta property="og:description" content="洛谷又刷到了一道石头剪子布的题，上一次写这种类型还是在pta上，这种题不难，但有点费时感觉模拟题都挺要时间的 规则     结果 石 剪 布 蜥 斯    石 平 赢 输 赢 输   剪 输 平 赢 赢 输   布 赢 输 平 输 赢   蜥 输 输 赢 平 赢   斯 赢 赢 输 输 平     用Markdown敲表格是真的累，你们可以自己去敲一敲(QAQ) 这题感觉还没在pta上做的难，感觉">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-20T13:24:12.000Z">
+<meta property="article:modified_time" content="2021-03-20T13:50:44.027Z">
 <meta property="article:author" content="King">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://skydusty.github.io/">
+<link rel="canonical" href="https://skydusty.github.io/2021/03/20/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%AD%90%E5%B8%83/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>King</title>
+  <title>石头剪子布 | King</title>
   
 
 
@@ -140,9 +144,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -158,10 +163,9 @@
       <meta itemprop="name" content="King">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/20/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%AD%90%E5%B8%83/" class="post-title-link" itemprop="url">石头剪子布</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          石头剪子布
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -185,7 +189,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://www.luogu.com.cn/problem/P1328" target="_blank">洛谷</a><br>又刷到了一道石头剪子布的题，上一次写这种类型还是在pta上，这种题不难，但有点费时<br>感觉模拟题都挺要时间的</p>
+        <p><a href="https://www.luogu.com.cn/problem/P1328" target="_blank">洛谷</a><br>又刷到了一道石头剪子布的题，上一次写这种类型还是在pta上，这种题不难，但有点费时<br>感觉模拟题都挺要时间的</p>
 <pre><code>规则
 </code></pre>
 <table>
@@ -248,159 +252,30 @@
 <h4 id="然后把pta上的那道也写在这吧，基本一样"><a href="#然后把pta上的那道也写在这吧，基本一样" class="headerlink" title="然后把pta上的那道也写在这吧，基本一样"></a>然后把pta上的那道也写在这吧，基本一样</h4><p><a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805304020025344" target="_blank">锤子剪子布(pta)</a></p>
 <p>这题特色可能是，要给出甲乙两人分别出什么胜率最大吧，就直接比用什么手势赢的次数就行了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void g(char ch1,char ch2,int &amp;w,int &amp;l,int &amp;p)&#123;</span><br><span class="line">    if(ch1&#x3D;&#x3D;&#39;C&#39;)&#123;</span><br><span class="line">        if(ch2&#x3D;&#x3D;&#39;C&#39;)</span><br><span class="line">            p++;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;B&#39;)&#123;</span><br><span class="line">            l++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;J&#39;)&#123;</span><br><span class="line">            w++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(ch1&#x3D;&#x3D;&#39;B&#39;)&#123;</span><br><span class="line">        if(ch2&#x3D;&#x3D;&#39;C&#39;)&#123;</span><br><span class="line">            w++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;B&#39;)</span><br><span class="line">            p++;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;J&#39;)&#123;</span><br><span class="line">            l++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(ch1&#x3D;&#x3D;&#39;J&#39;)&#123;</span><br><span class="line">        if(ch2&#x3D;&#x3D;&#39;C&#39;)&#123;</span><br><span class="line">            l++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;B&#39;)&#123;</span><br><span class="line">            w++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ch2&#x3D;&#x3D;&#39;J&#39;)</span><br><span class="line">            p++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int a[100];</span><br><span class="line">int b[100];</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,w&#x3D;0,l&#x3D;0,p&#x3D;0,w1,l1;</span><br><span class="line">    char ch1,ch2;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        w1&#x3D;w,l1&#x3D;l;</span><br><span class="line">        cin&gt;&gt;ch1&gt;&gt;ch2;</span><br><span class="line">        g(ch1,ch2,w,l,p);</span><br><span class="line">        if(w&gt;w1)&#123;</span><br><span class="line">            a[ch1]++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(l&gt;l1)&#123;</span><br><span class="line">            b[ch2]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;w&lt;&lt;&quot; &quot;&lt;&lt;p&lt;&lt;&quot; &quot;&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;p&lt;&lt;&quot; &quot;&lt;&lt;w&lt;&lt;endl;</span><br><span class="line">    int max&#x3D;0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;100;i++)&#123;</span><br><span class="line">        if(a[i]&gt;a[max])</span><br><span class="line">            max&#x3D;i;</span><br><span class="line">    &#125;</span><br><span class="line">    if(max!&#x3D;0)&#123;</span><br><span class="line">    switch(max)&#123;</span><br><span class="line">        case 66:cout&lt;&lt;&quot;B&quot;&lt;&lt;&quot; &quot;;break;</span><br><span class="line">        case 67:cout&lt;&lt;&quot;C&quot;&lt;&lt;&quot; &quot;;break;</span><br><span class="line">        case 74:cout&lt;&lt;&quot;J&quot;&lt;&lt;&quot; &quot;;break;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(max&#x3D;&#x3D;0)</span><br><span class="line">    cout&lt;&lt;&quot;B&quot;&lt;&lt;&quot; &quot;;</span><br><span class="line">    max&#x3D;0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;100;i++)&#123;</span><br><span class="line">        if(b[i]&gt;b[max])</span><br><span class="line">            max&#x3D;i;</span><br><span class="line">    &#125;</span><br><span class="line">    if(max!&#x3D;0)&#123;</span><br><span class="line">    switch(max)&#123;</span><br><span class="line">        case 66:cout&lt;&lt;&quot;B&quot;;break;</span><br><span class="line">        case 67:cout&lt;&lt;&quot;C&quot;;break;</span><br><span class="line">        case 74:cout&lt;&lt;&quot;J&quot;;break;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(max&#x3D;&#x3D;0)</span><br><span class="line">    cout&lt;&lt;&quot;B&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://skydusty.github.io/2021/03/16/thought/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="King">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="King">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/16/thought/" class="post-title-link" itemprop="url">thought</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-03-16 16:30:28 / Modified: 17:17:09" itemprop="dateCreated datePublished" datetime="2021-03-16T16:30:28+08:00">2021-03-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p>对Markdown的使用还不是很熟悉，有很多东西还需要探索。今天就写一篇博客记录搭建博客的心得吧</p>
-<h4 id="1-关于将hexo部署到github上"><a href="#1-关于将hexo部署到github上" class="headerlink" title="1.关于将hexo部署到github上"></a>1.关于将hexo部署到github上</h4><pre><code>这确实折磨了我好一阵子，因为我在本地能运行hexo，但就是通过github不能访问到，就很离谱。最后选了一个主题，居然神奇的就
-能访问了，工作室的WiFi能翻墙，点赞。
-</code></pre>
-<h4 id="2-关于hexo主题换了，显示layout-index-html这件事"><a href="#2-关于hexo主题换了，显示layout-index-html这件事" class="headerlink" title="2.关于hexo主题换了，显示layout index.html这件事"></a>2.关于hexo主题换了，显示layout index.html这件事</h4><pre><code>离谱直接拉满，网上说，将theme里的主题名字改一下就行了，结果......还是不行，于是我使用了hexo clean，直接删了，然后
-hexo d -g重新推一波，居然就神奇的好了
-</code></pre>
-<h4 id="3-关于用vscode写markdown这件事"><a href="#3-关于用vscode写markdown这件事" class="headerlink" title="3.关于用vscode写markdown这件事"></a>3.关于用vscode写markdown这件事</h4><pre><code>说实话，我是真没想到vscode怎么香，敲c,c++,python,html用它，Markdown还能用它，这里的用更多指的是方便。插件yyds
-虽然写项目还是用vs，但vscode yyds！
-</code></pre>
-<h4 id="4-关于服务器WordPress一键部署这件事"><a href="#4-关于服务器WordPress一键部署这件事" class="headerlink" title="4.关于服务器WordPress一键部署这件事"></a>4.关于服务器WordPress一键部署这件事</h4><pre><code>一个字香，两个字真香。虽然WordPress主题，丑的让人不敢恭维，但，还是香啊，一键部署......就很离谱
-</code></pre>
-<h4 id="5-关于写博客这件事"><a href="#5-关于写博客这件事" class="headerlink" title="5.关于写博客这件事"></a>5.关于写博客这件事</h4><pre><code>随缘吧，想起来就写一写
-</code></pre>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/16/thought/" rel="prev" title="thought">
+      <i class="fa fa-chevron-left"></i> thought
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://skydusty.github.io/2021/03/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="King">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="King">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/09/hello-world/" class="post-title-link" itemprop="url">welcome</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-09 22:31:35" itemprop="dateCreated datePublished" datetime="2021-03-09T22:31:35+08:00">2021-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-16 17:25:41" itemprop="dateModified" datetime="2021-03-16T17:25:41+08:00">2021-03-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SkyDusty的博客"><a href="#SkyDusty的博客" class="headerlink" title="SkyDusty的博客"></a>SkyDusty的博客</h1><hr>
-<h2 id="写的不是很好看，以后会修改修改"><a href="#写的不是很好看，以后会修改修改" class="headerlink" title="写的不是很好看，以后会修改修改"></a>写的不是很好看，以后会修改修改</h2><hr>
-<h2 id="write-by-kinghandsome"><a href="#write-by-kinghandsome" class="headerlink" title="write by:kinghandsome"></a>write by:kinghandsome</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -453,6 +328,7 @@ hexo d -g重新推一波，居然就神奇的好了
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8Markdown%E6%95%B2%E8%A1%A8%E6%A0%BC%E6%98%AF%E7%9C%9F%E7%9A%84%E7%B4%AF%EF%BC%8C%E4%BD%A0%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E5%8E%BB%E6%95%B2%E4%B8%80%E6%95%B2-QAQ"><span class="nav-number">1.</span> <span class="nav-text"> 用Markdown敲表格是真的累，你们可以自己去敲一敲(QAQ)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E6%8A%8Apta%E4%B8%8A%E7%9A%84%E9%82%A3%E9%81%93%E4%B9%9F%E5%86%99%E5%9C%A8%E8%BF%99%E5%90%A7%EF%BC%8C%E5%9F%BA%E6%9C%AC%E4%B8%80%E6%A0%B7"><span class="nav-number">1.0.1.</span> <span class="nav-text">然后把pta上的那道也写在这吧，基本一样</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
