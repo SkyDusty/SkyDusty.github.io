@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="石头剪子布(洛谷) 石头剪子布(pta) 炸金花 乒乓球">
+  <meta name="description" content="石头剪子布(洛谷) 石头剪子布(pta) 炸金花 乒乓球 神奇的幻方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟题合集&lt;一&gt;">
 <meta property="og:url" content="https://skydusty.github.io/2020/12/20/%E6%A8%A1%E6%8B%9F%E9%A2%98/index.html">
 <meta property="og:site_name" content="King">
-<meta property="og:description" content="石头剪子布(洛谷) 石头剪子布(pta) 炸金花 乒乓球">
+<meta property="og:description" content="石头剪子布(洛谷) 石头剪子布(pta) 炸金花 乒乓球 神奇的幻方">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-20T13:24:12.000Z">
-<meta property="article:modified_time" content="2021-03-29T02:29:27.450Z">
+<meta property="article:modified_time" content="2021-03-29T13:40:01.359Z">
 <meta property="article:author" content="King">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.8k字</span>
+      <span class="post-count">3.2k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">14分</span>
+      <span class="post-count">16分</span>
     </span>
   </span>
 </div>
@@ -313,6 +313,7 @@
 <li><a href="#%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%AD%90%E5%B8%83pta">石头剪子布(pta)</a></li>
 <li><a href="#%E7%82%B8%E9%87%91%E8%8A%B1">炸金花</a></li>
 <li><a href="#%E4%B9%92%E4%B9%93%E7%90%83">乒乓球</a></li>
+<li><a href="#%E7%A5%9E%E5%A5%87%E7%9A%84%E5%B9%BB%E6%96%B9">神奇的幻方</a></li>
 </ul>
 <!-- tocstop -->
 
@@ -419,6 +420,14 @@ WWWWWWWWWWWWWWWWWWWWWWLW
 <p><em>传送阵走你</em><br><a href="https://www.luogu.com.cn/problem/P1042" target="_blank">巴啦啦能量</a></p>
 <p>其实吧，模拟题做来做去都一样。我感觉这些题都如出一辙，按题目老老实实敲代码就行了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">char result[63000];</span><br><span class="line">struct data&#123;</span><br><span class="line">    int win,lost;</span><br><span class="line">&#125;r11[30000],r21[30000];</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int win11&#x3D;0,lost11&#x3D;0,win21&#x3D;0,lost21&#x3D;0,w1&#x3D;0,w2&#x3D;0;</span><br><span class="line">    for(int i&#x3D;0;cin&gt;&gt;result[i]&amp;&amp;result[i]!&#x3D;&#39;E&#39;;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;十一分制</span><br><span class="line">        if(result[i]&#x3D;&#x3D;&#39;W&#39;)&#123;</span><br><span class="line">            win11++;</span><br><span class="line">            win21++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(result[i]&#x3D;&#x3D;&#39;L&#39;)&#123;</span><br><span class="line">            lost11++;</span><br><span class="line">            lost21++;</span><br><span class="line">        &#125;</span><br><span class="line">        if((win11-lost11&gt;&#x3D;2&amp;&amp;win11&gt;&#x3D;11)||(lost11-win11&gt;&#x3D;2&amp;&amp;lost11&gt;&#x3D;11))&#123;</span><br><span class="line">            r11[w1].win&#x3D;win11;</span><br><span class="line">            r11[w1].lost&#x3D;lost11;</span><br><span class="line">            w1++;</span><br><span class="line">            win11&#x3D;0;</span><br><span class="line">            lost11&#x3D;0;</span><br><span class="line">        &#125;</span><br><span class="line">        if((win21-lost21&gt;&#x3D;2&amp;&amp;win21&gt;&#x3D;21)||(lost21-win21&gt;&#x3D;2&amp;&amp;lost21&gt;&#x3D;21))&#123;</span><br><span class="line">            r21[w2].win&#x3D;win21;</span><br><span class="line">            r21[w2].lost&#x3D;lost21;</span><br><span class="line">            w2++;</span><br><span class="line">            win21&#x3D;0;</span><br><span class="line">            lost21&#x3D;0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;0;i&lt;w1;i++)&#123;</span><br><span class="line">        cout&lt;&lt;r11[i].win&lt;&lt;&quot;:&quot;&lt;&lt;r11[i].lost&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;win11&lt;&lt;&quot;:&quot;&lt;&lt;lost11&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    for(int i&#x3D;0;i&lt;w2;i++)&#123;</span><br><span class="line">        cout&lt;&lt;r21[i].win&lt;&lt;&quot;:&quot;&lt;&lt;r21[i].lost&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;win21&lt;&lt;&quot;:&quot;&lt;&lt;lost21;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1><span id="神奇的幻方">神奇的幻方</span></h1><pre><code>又是一道模拟，如果你知道这题的本质的话，会很快，只需遍历一遍二维数组
+就出来了。但如果不知道的话，那就只能和我一样，按照题目的意思一步一步
+实现了。
+</code></pre>
+<p><em><strong>传送阵走你</strong></em><br><a href="https://www.luogu.com.cn/problem/P2615" target="_blank">巴啦啦能量</a></p>
+<p>跟着一行一样写吧，结构体+数组，你指的拥有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int map[40][40];</span><br><span class="line">struct data&#123;</span><br><span class="line">    int x,y;</span><br><span class="line">&#125;point[1600];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,i&#x3D;1;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    map[0][n&#x2F;2]&#x3D;1;</span><br><span class="line">    point[i].x&#x3D;0;</span><br><span class="line">    point[i].y&#x3D;n&#x2F;2;</span><br><span class="line">    &#x2F;&#x2F;point[i].bool&#x3D;1;</span><br><span class="line">    i++;</span><br><span class="line">    while(i&lt;&#x3D;n*n)&#123;</span><br><span class="line">        if(point[i-1].x&#x3D;&#x3D;0&amp;&amp;point[i-1].y&lt;n-1)&#123;</span><br><span class="line">            point[i].x&#x3D;n-1;</span><br><span class="line">            point[i].y&#x3D;point[i-1].y+1;</span><br><span class="line">            &#x2F;&#x2F;point[i].bool&#x3D;1;</span><br><span class="line">            map[point[i].x][point[i].y]&#x3D;i;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(point[i-1].x!&#x3D;0&amp;&amp;point[i-1].y&#x3D;&#x3D;n-1)&#123;</span><br><span class="line">            point[i].x&#x3D;point[i-1].x-1;</span><br><span class="line">            point[i].y&#x3D;0;</span><br><span class="line">            &#x2F;&#x2F;point[i].bool&#x3D;1;</span><br><span class="line">            map[point[i].x][point[i].y]&#x3D;i;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(point[i-1].x&#x3D;&#x3D;0&amp;&amp;point[i-1].y&#x3D;&#x3D;n-1)&#123;</span><br><span class="line">            point[i].x&#x3D;point[i-1].x+1;</span><br><span class="line">            point[i].y&#x3D;point[i-1].y;</span><br><span class="line">            &#x2F;&#x2F;point[i].bool&#x3D;1;</span><br><span class="line">            map[point[i].x][point[i].y]&#x3D;i;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(map[point[i-1].x-1][point[i-1].y+1]&#x3D;&#x3D;0)&#123;</span><br><span class="line">                point[i].x&#x3D;point[i-1].x-1;</span><br><span class="line">                point[i].y&#x3D;point[i-1].y+1;</span><br><span class="line">                map[point[i].x][point[i].y]&#x3D;i;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                point[i].x&#x3D;point[i-1].x+1;</span><br><span class="line">                point[i].y&#x3D;point[i-1].y;</span><br><span class="line">                map[point[i].x][point[i].y]&#x3D;i;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int k&#x3D;0,j&#x3D;0;</span><br><span class="line">    for(k&#x3D;0;k&lt;n;k++)&#123;</span><br><span class="line">        for(j&#x3D;0;j&lt;n-1;j++)&#123;</span><br><span class="line">            cout&lt;&lt;map[k][j]&lt;&lt;&quot; &quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;map[k][j]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
 
     
@@ -595,7 +604,7 @@ WWWWWWWWWWWWWWWWWWWWWWLW
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">石头剪子布(洛谷)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">石头剪子布(pta)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">炸金花</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">乒乓球</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">石头剪子布(洛谷)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">石头剪子布(pta)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">炸金花</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">乒乓球</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">神奇的幻方</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -808,6 +817,10 @@ WWWWWWWWWWWWWWWWWWWWWWLW
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>
