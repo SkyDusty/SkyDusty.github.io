@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="记录一些琐事    关于图片插入，无法显示的问题    关于图片插入，无法显示的问题太难受了  十分奇怪..&#x2F;img&#x2F;dp1.jpg，这个相对路径，我感觉没写错，但我用vscode的preview插件没有显示出图片，然后改成..\img\dp1.jpg居然神奇的显示出来了，让我对自己关于路径写法的学习产生了深深的怀疑。但就算是这样，在hexo本地上也无法显示，网上说要下什么插件，但下载失败。QAQ">
+  <meta name="description" content="记录一些琐事    关于toc在hexo上使用 关于图片插入，无法显示的问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随笔">
 <meta property="og:url" content="https://skydusty.github.io/2020/10/27/%E9%9A%8F%E6%89%8B%E8%AE%B0/index.html">
 <meta property="og:site_name" content="King">
-<meta property="og:description" content="记录一些琐事    关于图片插入，无法显示的问题    关于图片插入，无法显示的问题太难受了  十分奇怪..&#x2F;img&#x2F;dp1.jpg，这个相对路径，我感觉没写错，但我用vscode的preview插件没有显示出图片，然后改成..\img\dp1.jpg居然神奇的显示出来了，让我对自己关于路径写法的学习产生了深深的怀疑。但就算是这样，在hexo本地上也无法显示，网上说要下什么插件，但下载失败。QAQ">
+<meta property="og:description" content="记录一些琐事    关于toc在hexo上使用 关于图片插入，无法显示的问题">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-27T08:57:13.000Z">
-<meta property="article:modified_time" content="2021-03-29T02:43:05.682Z">
+<meta property="article:modified_time" content="2021-03-29T02:50:42.581Z">
 <meta property="article:author" content="King">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">141字</span>
+      <span class="post-count">327字</span>
     </span>
   </span>
 
@@ -314,10 +314,25 @@
 <!-- toc -->
 
 <ul>
+<li><a href="#%E5%85%B3%E4%BA%8Etoc%E5%9C%A8hexo%E4%B8%8A%E4%BD%BF%E7%94%A8">关于toc在hexo上使用</a></li>
 <li><a href="#%E5%85%B3%E4%BA%8E%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98">关于图片插入，无法显示的问题</a></li>
 </ul>
 <!-- tocstop -->
 
+<span id="more"></span>
+<h1><span id="关于toc在hexo上使用">关于toc在hexo上使用</span></h1><p>  hexo上的Markdown与通常使用的Markdown有点区别，至少就目前发现的在目录分级上<br>就很不一样。例如在通常的，”[]+toc”就能分级，但显然在hexo上不适用。hexo上需要<br>安装一个hexo-toc插件.</p>
+<pre><code>npm install hexo-toc 
+</code></pre>
+<p>之后在博客根目录下的_config.yml中进行配置</p>
+<pre><code>toc:
+maxDepth: 3
+//3是目录深度
+</code></pre>
+<p><em><strong>然后hexo目录的用法也与标准的Markdown语法有区别</strong></em></p>
+<pre><code>在Markdown中直接敲[toc]就行了,但在hexo里面，要想显示出目录的话，需要
+在想生成目录的位置敲《！-- toc --》(为了不影响我的排版，我用的中文，将其
+改成英文即可使用)
+</code></pre>
 <h1><span id="关于图片插入无法显示的问题">关于图片插入，无法显示的问题</span></h1><pre><code>太难受了
 </code></pre>
 <p>十分奇怪../img/dp1.jpg，这个相对路径，我感觉没写错，但我用vscode的preview插件<br>没有显示出图片，然后改成..\img\dp1.jpg居然神奇的显示出来了，让我对自己关于路径<br>写法的学习产生了深深的怀疑。但就算是这样，在hexo本地上也无法显示，网上说要下什么<br>插件，但下载失败。QAQ，离谱</p>
@@ -498,7 +513,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">关于图片插入，无法显示的问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">关于toc在hexo上使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">关于图片插入，无法显示的问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
