@@ -184,7 +184,7 @@ body {
   font-family: Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
   line-height: 1.5;
   color: #333;
-  background-color: #fff;
+  /* background-color: #fff; */
   min-height: 100%
 }
 
@@ -3397,7 +3397,7 @@ pre .id {
     position: absolute;
     width: 100%;
     z-index: 2;
-    background-image: url("https://nbviewer.jupyter.org/github/SkyDusty/SkyDusty.github.io/blob/master/3.jpg");
+    /* background-image: url("https://nbviewer.jupyter.org/github/SkyDusty/SkyDusty.github.io/blob/master/3.jpg"); */
     background: #4d4d4d no-repeat
   }
 
