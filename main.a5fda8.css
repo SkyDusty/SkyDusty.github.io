@@ -185,6 +185,8 @@ body {
   line-height: 1.5;
   color: #333;
   /* background-color: #fff; */
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+    url('17.jpg') no-repeat 0% 0%/ cover;
   min-height: 100%
 }
 
@@ -719,7 +721,7 @@ textarea {
 }
 
 body {
-  background: #eaeaea
+  /* background: #eaeaea */
 }
 
 #container,
@@ -759,11 +761,11 @@ html {
   /* background: #eaeaea; */
   left: 300px;
   width: auto;
-  background-image: url(17.jpg); 
-  background-repeat: repeat-y;   
+  /* background-image: url(17.jpg);
+  background-repeat: no-repeat;   
   background-attachment: fixed;     
   background-position: 100% 60%;     
-  background-size: 1500px 800px;   
+  background-size: 1500px 800px; */
 
 }
 
@@ -3040,7 +3042,9 @@ pre .id {
 }
 
 @media screen and (max-width:800px) {
-
+  body {
+		background: url('5.jpg') no-repeat fixed top;
+    } 
   #container,
   body,
   html {
@@ -3397,7 +3401,6 @@ pre .id {
     position: absolute;
     width: 100%;
     z-index: 2;
-    /* background-image: url("https://nbviewer.jupyter.org/github/SkyDusty/SkyDusty.github.io/blob/master/3.jpg"); */
     background: #4d4d4d no-repeat
   }
 
