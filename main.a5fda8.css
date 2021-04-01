@@ -1,3 +1,51 @@
+.mymenucontainer {
+	display:block;
+	cursor:pointer;
+	left:0;
+	top:0;
+	width:35px;
+	height:35px;
+	z-index:9999;
+	position:fixed;
+}
+.bar1 {
+	width:35px;
+	height:3px;
+	background-color:#333;
+	margin:6px 0;
+	transition:0.4s;
+	-webkit-transform:rotate(-45deg) translate(-8px,8px);
+	transform:rotate(-45deg) translate(-8px,8px);
+}
+.bar2 {
+	width:35px;
+	height:3px;
+	background-color:#333;
+	margin:6px 0;
+	transition:0.4s;
+	opacity:0;
+}
+.bar3 {
+	width:35px;
+	height:3px;
+	background-color:#333;
+	margin:6px 0;
+	transition:0.4s;
+	-webkit-transform:rotate(45deg) translate(-4px,-6px);
+	transform:rotate(45deg) translate(-4px,-6px);
+}
+.change .bar1 {
+	-webkit-transform:rotate(0deg) translate(0px,0px);
+	transform:rotate(0deg) translate(0px,0px);
+}
+.change .bar2 {
+	opacity:1;
+}
+.change .bar3 {
+	-webkit-transform:rotate(0deg) translate(0px,0px);
+	transform:rotate(0deg) translate(0px,0px);
+}
+
 .clearfix:after,
 .clearfix:before {
   content: "";
@@ -985,6 +1033,42 @@ html {
 
 ::-webkit-scrollbar-button:end:active {
   background: url(./img/scrollbar_arrow.png) no-repeat -30px -18px
+}
+
+/* 文章中的超链接,鼠标悬浮特效*/
+.article-entry a{
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+  font-family: lucida console;/* 这种字体的英文比较好看（像代码样式） */
+}
+/* 鼠标悬浮时，变色 */
+.article-entry a:hover{
+  color: #d7191a;
+  transition:.8s;
+}
+/* 鼠标悬浮时，下划线从中间向两边延伸 */
+.article-entry a:hover::after{
+transform: scaleX(1);
+/* 旋转，与transform连用；这里作用：鼠标悬浮时，底部的下划线从中间扩散到两边。
+ bottom right :左到右出现，左到右消失（需配合上面的::after）
+*/
+transform-origin: bottom center;
+}
+/* 鼠标移开后，下划线从两边向中间消失 */
+.article-entry a::after{
+content: '';
+position: absolute;
+width: 100%;
+transform: scaleX(0);
+height: 1.5px;
+bottom: 0;
+left: 0;
+background-color: #0087ca;
+/* 详见：https://www.w3school.com.cn/cssref/pr_transform-origin.asp,
+旋转，与transform连用；这里作用：鼠标移开后，底部的下划线从中间开始消失 */
+transform-origin: bottom center;
+transition: transform 0.5s ease-out;
 }
 
 .article-entry .highlight,
