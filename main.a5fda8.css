@@ -3148,6 +3148,10 @@ pre .id {
   .left-col {
     display: none
   }
+  
+  .left-col,.mymenucontainer {
+    display:none
+}
 
   .mid-col {
     left: 0
