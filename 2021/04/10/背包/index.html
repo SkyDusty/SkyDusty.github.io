@@ -6,25 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SkyDusty.github.io">
-  <title>动态规划&lt;一&gt; | King</title>
+  <title>背包 | King</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一些简单的笔记与题目   走路问题(基础) 硬币问题 找多少路问题(起点到终点) 求最值(工作所能得到的最多钱) HJ的毕业设计">
+  <meta name="description" content="一些背包问题   01背包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划&lt;一&gt;">
-<meta property="og:url" content="https://skydusty.github.io/2020/12/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:title" content="背包">
+<meta property="og:url" content="https://skydusty.github.io/2021/04/10/%E8%83%8C%E5%8C%85/index.html">
 <meta property="og:site_name" content="King">
-<meta property="og:description" content="一些简单的笔记与题目   走路问题(基础) 硬币问题 找多少路问题(起点到终点) 求最值(工作所能得到的最多钱) HJ的毕业设计">
+<meta property="og:description" content="一些背包问题   01背包">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://skydusty.github.io/2020/12/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/dp1.jpg">
-<meta property="article:published_time" content="2020-12-27T09:53:07.000Z">
-<meta property="article:modified_time" content="2021-04-08T12:01:12.046Z">
+<meta property="article:published_time" content="2021-04-10T10:30:47.000Z">
+<meta property="article:modified_time" content="2021-04-10T10:54:43.270Z">
 <meta property="article:author" content="King">
 <meta property="article:tag" content="刷题">
 <meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="背包问题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://skydusty.github.io/2020/12/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/dp1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="King" type="application/atom+xml">
   
@@ -331,14 +330,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-背包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      动态规划&lt;一&gt;
+      背包
     </h1>
   
 
@@ -350,8 +349,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/12/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-        <time datetime="2020-12-27T09:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-27</time>
+<a href="/2021/04/10/%E8%83%8C%E5%8C%85/" class="archive-article-date">
+        <time datetime="2021-04-10T10:30:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-10</time>
 </a>
 
   
@@ -364,7 +363,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.7k字</span>
+      <span class="post-count">470字</span>
     </span>
   </span>
 
@@ -373,7 +372,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -384,80 +383,32 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><strong>一些简单的笔记与题目</strong></p>
+    <p>一些背包问题</p>
 <!-- toc -->
 <ul>
-<li><a href="#%E8%B5%B0%E8%B7%AF%E9%97%AE%E9%A2%98%E5%9F%BA%E7%A1%80">走路问题(基础)</a></li>
-<li><a href="#%E7%A1%AC%E5%B8%81%E9%97%AE%E9%A2%98">硬币问题</a></li>
-<li><a href="#%E6%89%BE%E5%A4%9A%E5%B0%91%E8%B7%AF%E9%97%AE%E9%A2%98%E8%B5%B7%E7%82%B9%E5%88%B0%E7%BB%88%E7%82%B9">找多少路问题(起点到终点)</a></li>
-<li><a href="#%E6%B1%82%E6%9C%80%E5%80%BC%E5%B7%A5%E4%BD%9C%E6%89%80%E8%83%BD%E5%BE%97%E5%88%B0%E7%9A%84%E6%9C%80%E5%A4%9A%E9%92%B1">求最值(工作所能得到的最多钱)</a></li>
-<li><a href="#hj%E7%9A%84%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1">HJ的毕业设计</a></li>
+<li><a href="#01%E8%83%8C%E5%8C%85">01背包</a></li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<h1><span id="走路问题基础">走路问题(基础)</span></h1>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths/">走你</a></p>
+<h1><span id="01背包">01背包</span></h1>
 <blockquote>
-<p>问题描述,给定一个矩形，问从左上角到右下角有多少种走法(只能向下或者向右)</p>
+<p>最简单的一种背包问题，通常给定一个容量大小，要求算出，能容纳物品的最大价值之类</p>
 </blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//w[]重量 v[]价值</span></span><br><span class="line"><span class="keyword">if</span>(j&lt;w[i])</span><br><span class="line">    dp[i][j]=dp[i<span class="number">-1</span>][j];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-w[i]]+v[i]);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>假设m,n矩形。要想走到map[m-1] [n-1]，只有两种方法，从map[m-2] [n-1],或者map[m-1] [n-2]。这样就得到了关系转换式</p>
-<p>map[i] [j]=map[i-1] [j]+map[i] [j-1];</p>
-<p>初始条件判断：</p>
-<p>第一列和第一行只能由向下或是向右得到，即map[0:m-1] [0]=1;</p>
-<p>map[0] [0:n-1]=1;</p>
+<p>(不专业的表述)当目前的背包容量小于所装物品的重量时，当前背包的价值等于前一背包容量下的价值</p>
+<p>当目前的背包容量大于等于所装物品的重量时，价值就等于前一背包容量的价值与当前容量减去所装物品的重量对应的背包的价值加上所装物品的价值的最大值</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> dp[<span class="number">110</span>][<span class="number">110</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            dp[<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">                dp[i][j]=dp[i<span class="number">-1</span>][j]+dp[i][j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">return</span> dp[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1><span id="硬币问题">硬币问题</span></h1>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1049">走你</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">32</span>][<span class="number">20005</span>];</span><br><span class="line"><span class="keyword">int</span> ob[<span class="number">32</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;ob[i];</span><br><span class="line">	sort(ob,ob+n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&lt;ob[i])</span><br><span class="line">				dp[i][j]=dp[i<span class="number">-1</span>][j];</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-ob[i]]+ob[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;m-dp[n][m];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>题目要求：<br>
-提供你一个数额n，与一些面额的硬币，求出凑出数额n的最小的硬币数</p>
+<p>要求剩余空间的最小值，可以转换成求能装的最大值</p>
 </blockquote>
-<p>思路比较简单吧，就是我们假设最后一个硬币的面额为K，那么我们现在所需要的找的就是找到n-k的最小拼凑数。<br>
-就这样一直找，是不是感觉跟递归有点像呢。(其实我也这么觉得，基本一模一样好吧)接下来，我们用递归实现一下吧。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> num[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> res=INT_MAX<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&gt;=num[i])&#123;</span><br><span class="line">			res=min(res,f(n-num[i],num,len)+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,m,num[<span class="number">100</span>];</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;num[i];</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;f(n,num,m);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<p>这就是递归的代码实现，其实不难想。但当n的值变大时，递归有些步骤就会重复执行一个十分可怕的数字<br>
-所以当n较大时，递归显然不可取，这时我们就可能用到动态规划了。目前我刚学动态规划，可能能力比较薄弱<br>
-请多多见谅，也请不吝赐教</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//动态规划解</span></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1000</span>],coin[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    coin[<span class="number">0</span>]=<span class="number">2</span>;</span><br><span class="line">    coin[<span class="number">1</span>]=<span class="number">5</span>;</span><br><span class="line">    coin[<span class="number">2</span>]=<span class="number">7</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="comment">//cout&lt;&lt;f(n);</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        dp[i]=INT_MAX<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=coin[j])&#123;</span><br><span class="line">                dp[i]=min(dp[i-coin[j]]+<span class="number">1</span>,dp[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(dp[n]==INT_MAX<span class="number">-1</span>)</span><br><span class="line">            dp[n]=<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;dp[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="找多少路问题起点到终点">找多少路问题(起点到终点)</span></h1>
+<p><a herf="https://www.luogu.com.cn/problem/P1048">梅开二度</a></p>
 <blockquote>
-<p>问题描述：<br>
-试计算出从起点到终点有多少路</p>
+<p>这题与上一题基本一样，算是01背包的两种常见形式了</p>
 </blockquote>
-<p>其实这题的思路还是很清晰的，因为想要到达map[i][j]就只有两种方法，从map[i-1][j]和<br>
-map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1]有多少种方法</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">1100</span>][<span class="number">1100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(<span class="built_in">map</span>,<span class="number">0</span>,<span class="number">1100</span>);</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>||j==<span class="number">0</span>)</span><br><span class="line">				<span class="built_in">map</span>[i][j]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">map</span>[i][j]=<span class="built_in">map</span>[i<span class="number">-1</span>][j]+<span class="built_in">map</span>[i][j<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">map</span>[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h1><span id="求最值工作所能得到的最多钱">求最值(工作所能得到的最多钱)</span></h1>
-<p><img src="dp1.jpg" alt="题图"><br>
-<strong>图片可能显示不出来，太难受了</strong></p>
-<blockquote>
-<p>题目描述：<br>
-给定每项工作进行的起止时间与收益，让你求出，收益的最大值</p>
-</blockquote>
-<p>其实还挺好想的，不是吗？每项工作都有两种选择————做/不做，做的话，就是将这项工作之前的最大<br>
-收益加上该工作收益，不做的话就是前一个最大收益，比较一下最大的就是当前的最大收益了</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">data</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> start,end,value;</span><br><span class="line">&#125;n[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> opf[<span class="number">100</span>],pre[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num,flag=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;num;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;n[i].start&gt;&gt;n[i].end&gt;&gt;n[i].value;</span><br><span class="line">	n[<span class="number">0</span>].value=<span class="number">0</span>;</span><br><span class="line">	pre[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	opf[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=num;i++)&#123;</span><br><span class="line">		flag=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">1</span>;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(n[i].start&gt;=n[j].end)&#123;</span><br><span class="line">				flag=<span class="number">1</span>;</span><br><span class="line">				pre[i]=j;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!flag)</span><br><span class="line">			pre[i]=<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;i++)&#123;</span><br><span class="line">		<span class="comment">//          选择i                 不选择i </span></span><br><span class="line">		opf[i]=max(opf[pre[i]]+n[i].value,opf[i<span class="number">-1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;opf[num];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">测试样例</span></span><br><span class="line"><span class="comment">8</span></span><br><span class="line"><span class="comment">1 4 5</span></span><br><span class="line"><span class="comment">3 5 1</span></span><br><span class="line"><span class="comment">0 6 8</span></span><br><span class="line"><span class="comment">4 7 4</span></span><br><span class="line"><span class="comment">3 8 6</span></span><br><span class="line"><span class="comment">5 9 3</span></span><br><span class="line"><span class="comment">6 10 2</span></span><br><span class="line"><span class="comment">8 11 4 </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h1><span id="hj的毕业设计">HJ的毕业设计</span></h1>
-<blockquote>
-<p>题目描述：<br>
-逛完美丽的校园，HJ发觉自己还有毕业设计没有做完，苦逼的HJ准备了n天的时间来完成他的毕业设计，按他的设想, 计划中的时间将在课设前端, 课设后端, 娱乐, 这三件事中度过,；<br>
-他进行了项目排期, 他不会两天连续做前端或做后端, 只有当排期为第i天做前端时, 他才在第i天做前端, 当排期为第i天做后端时, 他才在第i天做后端, 他一天只能做一件事, 要么前端, 要么后端, 要么娱乐,；<br>
-现在随机生成n天计划的排期, 求HJ最少能娱乐几天。</p>
-<p>输入<br>
-第一行一个整数 n, n(1≤n≤100000) 表示天数n；<br>
-第二行 n 个数 每个数为0或1,第 i 个数表示hj在第 i 天是否能做前端(1为能做前端, 0为不能做前端)；<br>
-第三行 n 个数 每个数为0或1,第 i 个数表示hj在第i天是否能做后端(1为能做后端, 0为不能做后端)；</p>
-<p>输出<br>
-一个整数, 表示hj最小娱乐天数。</p>
-</blockquote>
-<p>怎么说了，用模拟也可以很快的做出来，但用动态规划更好一点</p>
-<blockquote>
-<p>思路：<br>
-最小-&gt;动规，也不全如此吧。要求最小娱乐天数，我们可以求最大的项目天数。<br>
-假设前面已经是最多天数了，那么第i天选择做前端还是后端，就根据i-1天的情况来看</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//   前端          后端</span></span><br><span class="line"><span class="keyword">int</span> day1[<span class="number">101000</span>],day2[<span class="number">101000</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">101000</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="number">101000</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;day1[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;day2[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="comment">//           通过比较大小，判断是做前端还是做后端</span></span><br><span class="line">		dp[i][<span class="number">0</span>]=max(dp[i<span class="number">-1</span>][<span class="number">1</span>]+day1[i],dp[i<span class="number">-1</span>][<span class="number">0</span>]);</span><br><span class="line">		dp[i][<span class="number">1</span>]=max(dp[i<span class="number">-1</span>][<span class="number">0</span>]+day2[i],dp[i<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;n-max(dp[n<span class="number">-1</span>][<span class="number">1</span>],dp[n<span class="number">-1</span>][<span class="number">0</span>]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">110</span>][<span class="number">1100</span>];</span><br><span class="line"><span class="keyword">int</span> time[<span class="number">110</span>],valu[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;time[i]&gt;&gt;valu[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&lt;time[i])</span><br><span class="line">				dp[i][j]=dp[i<span class="number">-1</span>][j];</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				dp[i][j]=max(dp[i<span class="number">-1</span>][j],dp[i<span class="number">-1</span>][j-time[i]]+valu[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;dp[n][m];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     
 
@@ -504,7 +455,7 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://SkyDusty.github.io/2020/12/27/动态规划/" title="动态规划&lt;一&gt;" target="_blank">https://SkyDusty.github.io/2020/12/27/动态规划/</a>
+          <a href="https://SkyDusty.github.io/2021/04/10/背包/" title="背包" target="_blank">https://SkyDusty.github.io/2021/04/10/背包/</a>
         </li>
         
         <li>
@@ -531,6 +482,10 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">背包问题</a>
         		</li>
       		
 		</ul>
@@ -586,7 +541,7 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://skydusty.github.io/2020/12/27/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://skydusty.github.io/2021/04/10/%E8%83%8C%E5%8C%85/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -601,18 +556,9 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
 
 <nav id="article-nav">
   
-    <a href="/2020/12/29/%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/20/%E6%A8%A1%E6%8B%9F%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">模拟题合集&lt;一&gt;</div>
+    <a href="/2021/04/08/%E6%89%8B%E5%86%99%E9%93%BE%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手写链表</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -639,7 +585,7 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">走路问题(基础)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">硬币问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">找多少路问题(起点到终点)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">求最值(工作所能得到的最多钱)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">HJ的毕业设计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">01背包</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -661,7 +607,7 @@ map[i][j-1]。所以现在的问题就转换成了求到map[i-1][j]和map[i][j-1
 <!-- utteranc评论》 -->
 
 
-<div id="SOHUCS" sid="动态规划" ></div> 
+<div id="SOHUCS" sid="背包" ></div> 
 
 <!-- 热评 -->
 <!-- 代码1：放在页面需要展示的位置  -->
