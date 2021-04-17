@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一些搜索问题   迷宫(是否有解)dfs 迷宫(有多少解) 迷宫(输出路径) 八皇后 并查集">
+  <meta name="description" content="一些搜索问题   迷宫(是否有解)dfs 迷宫(有多少解) 迷宫(输出路径) 八皇后 并查集 查找子串(sunday)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搜索">
 <meta property="og:url" content="https://skydusty.github.io/2021/04/10/%E6%90%9C%E7%B4%A2/index.html">
 <meta property="og:site_name" content="King">
-<meta property="og:description" content="一些搜索问题   迷宫(是否有解)dfs 迷宫(有多少解) 迷宫(输出路径) 八皇后 并查集">
+<meta property="og:description" content="一些搜索问题   迷宫(是否有解)dfs 迷宫(有多少解) 迷宫(输出路径) 八皇后 并查集 查找子串(sunday)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-10T04:43:31.000Z">
-<meta property="article:modified_time" content="2021-04-15T12:12:47.984Z">
+<meta property="article:modified_time" content="2021-04-17T13:01:11.768Z">
 <meta property="article:author" content="King">
 <meta property="article:tag" content="搜索">
 <meta property="article:tag" content="DFS">
@@ -364,7 +364,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.2k字</span>
+      <span class="post-count">2.4k字</span>
     </span>
   </span>
 
@@ -373,7 +373,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">11分</span>
     </span>
   </span>
 </div>
@@ -392,6 +392,7 @@
 <li><a href="#%E8%BF%B7%E5%AE%AB%E8%BE%93%E5%87%BA%E8%B7%AF%E5%BE%84">迷宫(输出路径)</a></li>
 <li><a href="#%E5%85%AB%E7%9A%87%E5%90%8E">八皇后</a></li>
 <li><a href="#%E5%B9%B6%E6%9F%A5%E9%9B%86">并查集</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E5%AD%90%E4%B8%B2sunday">查找子串(sunday)</a></li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
@@ -481,6 +482,24 @@
 <p>这题目有点坑，首先，你合并的时候，需要直接将b的祖先结点变成a的祖先结点的祖先fa[find(b)]=find©，不这样做的话，会超时，其次，得用scanf输入，因为它的输入耗时是cin的1/3</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(x!=fa[x])&#123;</span><br><span class="line">		x=fa[x];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m,n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;m,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">		fa[i]=i;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,c;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">		<span class="keyword">if</span>(a==<span class="number">2</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(find(b)==find(c))</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;Y\n&quot;</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;N\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;</span><br><span class="line">			fa[find(b)]=find(c);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="查找子串sunday">查找子串(sunday)</span></h1>
+<blockquote>
+<p>样例</p>
+<p>输入样例1：<br>
+The C Programming Language<br>
+ram</p>
+<p>输出样例1：<br>
+10</p>
+<p>输入样例2：<br>
+The C Programming Language<br>
+bored</p>
+<p>输出样例2：<br>
+-1</p>
+</blockquote>
+<blockquote>
+<p>sunday算法,比KMP和暴力二重循环时间复杂度要低，而且好理解一点</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> fa,so;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	getline(<span class="built_in">cin</span>,fa);</span><br><span class="line">	getline(<span class="built_in">cin</span>,so);</span><br><span class="line">	<span class="keyword">int</span> len=so.length();</span><br><span class="line">	<span class="keyword">int</span> index=<span class="number">0</span>,flag;</span><br><span class="line">	<span class="keyword">while</span>(fa[index]!=<span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">		flag=<span class="number">1</span>;<span class="comment">//初始化为相同</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(so[i]!=fa[index+i])&#123;</span><br><span class="line">				flag=<span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;index&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		flag=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(so[i]==fa[index+len])&#123;</span><br><span class="line">				index+=len-i; </span><br><span class="line">				flag=<span class="number">0</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">			index+=len+<span class="number">1</span>;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;-1&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     
 
@@ -670,7 +689,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">迷宫(是否有解)dfs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">迷宫(有多少解)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">迷宫(输出路径)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">八皇后</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">并查集</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">迷宫(是否有解)dfs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">迷宫(有多少解)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">迷宫(输出路径)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">八皇后</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">并查集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">查找子串(sunday)</span></a></li></ol>
                     </div>
                 </span>
             </div>
